@@ -1,0 +1,165 @@
+{
+  "layer": "top",
+  "height": 10, 
+  "modules-left": [
+    "custom/arch",
+    "wlr/workspaces",
+  ],
+  "modules-center": [
+    "clock",
+    "clock#2"
+  ],
+  "modules-right": [
+    "battery",
+    "backlight",
+    "network",
+    "pulseaudio",
+    "bluetooth",
+    "tray",
+  ],
+  "margin-top": 5,
+  "margin-left": 5,
+  "margin-right": 5,
+  "custom/arch": {
+    "format": " <span color=\"#5E81AC\"> </span> ",
+    "tooltip": false,
+    "on-click": "sh $HOME/.config/rofi/powermenu/type-2/powermenu.sh"
+  },
+  "wlr/workspaces": {
+    "format": "<span color=\"#FABD2F\">{icon}</span>",
+    "tooltip": false,
+    "all-outputs": false,
+    "current-only": true,
+    "sort-by-number": true,
+    "persistent_workspaces": {
+      "1": [
+        "DP-1"
+      ],
+      "2": [
+        "DP-1"
+      ],
+      "3": [
+        "DP-1"
+      ],
+      "4": [
+        "DP-1"
+      ],
+      "5": [
+        "DP-1"
+      ],
+      "6": [
+        "DP-1"
+      ],
+      "7": [
+        "DP-1"
+      ],
+      "8": [
+        "DP-1"
+      ],
+      "9": [
+        "DP-1"
+      ],
+      "10": [
+        "DP-1"
+      ]
+    },
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "clock": {
+    "format": "<span color=\"#ed8796\"></span>  {:%I:%M %p}"
+  },
+  "clock#2": {
+    "format": "<span color=\"#a6da95\"></span>  {:%d.%m.%Y}"
+  },
+  "pulseaudio": {
+    "on-click": "exec pavucontrol",
+    "format": "<span color=\"#f5a97f\">{icon}</span> {volume}%",
+    "format-muted": "󰝟 ",
+    "tooltip": false,
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        "",
+        "󰕾",
+        "󰕾",
+        "󰕾",
+        "",
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1
+  },
+  "bluetooth": {
+    "format": "<span color='#b4befe'></span> {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "<span color=\"#8aadf4\"></span> {num_connections}",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+  },
+  "network": {
+    "interval": 2,
+    "format": "<span color = \"#c6a0f6\">󰖩 </span>{essid}",
+    "format-disconnected": "󰖪 No Network",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "<span color = \"#5BC236\">{icon}</span> {capacity}%",
+    "format-warning": "<span color = \"#FFA400\">{icon}</span> {capacity}%",
+    "format-critical": "<span color = \"#de001e\">{icon}</span> {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format-charging": "󰂄 {capacity}%",
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span color=\"#8bd5ca\"></span>{usage:3}%",
+    "min-length": 8
+  },
+  "memory": {
+    "interval": 10,
+    "format": "<span color=\"#a6da95\">󱤓</span>{used:6} GiB",
+    "min-length": 3
+  },
+  "disk": {
+    "interval": 1,
+    "format": "<span color=\"#FB4934\"></span> {free}"
+  },
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 ~/.config/waybar/mediaplayer.py --player spotify",
+    "format": "<span color=\"#1ED760\"></span>  {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+  "tray": {
+    "icon-size": 28,
+    "spacing": 10
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color=\"#ffffff\">{icon}</span> {percent}%",
+    "format-icons": ["", ""]
+  }
+}
